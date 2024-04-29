@@ -19,6 +19,7 @@ interface PodcastDetail {
 
 interface PodcastList {
   feed: PodcastDetail[];
+  accessed?: string;
 }
 
 export type { PodcastDetail, PodcastList };

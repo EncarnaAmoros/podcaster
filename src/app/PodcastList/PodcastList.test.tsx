@@ -18,7 +18,7 @@ vi.mock('./PodcastList.hook', () => ({
     .mockReturnValueOnce({ mockResultsNoPodcastData, fetching: false }),
 }));
 
-describe('Podcast List without', () => {
+describe('Podcast List', () => {
   it('should render a list of podcast', async () => {
     render(<PodcastList />);
 

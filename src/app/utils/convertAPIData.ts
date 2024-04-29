@@ -24,12 +24,11 @@ const getPodcastDetail = (podcastDetail: PodcastDetailAPI): PodcastDetail => {
 
 const getPodcastListFromDataAPI = (
   podcastResponseAPI: PodcastListResponseAPI,
-): PodcastList => {
-  return {
-    feed: podcastResponseAPI.feed.entry.map((podcastDetail) =>
-      getPodcastDetail(podcastDetail),
-    ),
-  };
-};
+): PodcastList => ({
+  feed: podcastResponseAPI.feed.entry.map((podcastDetail) =>
+    getPodcastDetail(podcastDetail),
+  ),
+  accessed: new Date().toString(),
+});
 
 export { getPodcastListFromDataAPI };
