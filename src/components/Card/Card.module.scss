@@ -1,0 +1,27 @@
+.card {
+  width: 400px;
+  height: 170px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__image {
+  position: absolute;
+  top: -50px;
+  z-index: 10;
+
+  img {
+    width: 130px;
+    height: auto;
+  }
+}
+
+.card__content {
+  padding-top: 70px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}

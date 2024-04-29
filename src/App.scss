@@ -1,0 +1,15 @@
+@import 'styles/import.scss';
+
+.app {
+  margin-bottom: 30px;
+}
+
+.app__header {
+  padding: 10px 15px;
+  border-bottom: 1px solid $greyLight;
+  margin-bottom: 30px;
+}
+
+.app__title {
+  color: $blueMood;
+}
