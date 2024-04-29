@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import {
   mockResultsPodcast,
   mockResultsNoPodcastData,
-} from '../mocks/PodcastList.mock';
+} from '../../mocks/PodcastList.mock';
 import { PodcastList } from './PodcastList';
 
 vi.mock('react-router-dom', () => ({

@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import { STORAGE_PODCAST_LIST_KEY } from 'src/app/constants';
-import { getTopPodcastsURL } from 'src/app/PodcastList/service/urls';
+import { getTopPodcastsURL } from 'src/app/service/urls';
 import { PodcastListResponseAPI } from 'src/app/types/DataAPI';
 import { PodcastList, PodcastDetail } from 'src/app/types/Data';
 import { getPodcastListFromDataAPI } from 'src/app/utils/convertAPIData';
 import { havePassed24hours } from 'src/app/utils/dataUtils';
+import { useStorageData } from 'src/app/service/storage';
 
 export const usePodcastList = () => {
+  const { setPodcastListStoredData, getPodcastListStoredData } =
+    useStorageData();
   const [podcastList, setPodcastList] = useState<PodcastList>();
   const [fetching, setFetching] = useState<boolean>();
   const [searchText, setSearchText] = useState<string>('');
@@ -15,23 +17,23 @@ export const usePodcastList = () => {
   const getPodcastListData = async (url: string) => {
     setFetching(true);
 
-    let podcastListData = await getPodcastStorageData();
+    let podcastListData = await getPodcastListStoredData();
     if (!podcastListData || havePassed24hours(podcastListData.accessed)) {
       podcastListData = await fetchPodcasts(url);
-      setPodcastStorageData(podcastListData);
+      setPodcastListStoredData(podcastListData);
     }
 
     setPodcastList(podcastListData);
     setFetching(false);
   };
 
-  // initial fetch data
   useEffect(() => {
+    // initial fetch data
     getPodcastListData(getTopPodcastsURL());
   }, []);
 
-  // filter daya by search text
   useEffect(() => {
+    // filter daya by search text
     getPodcastListFilterBySearch();
   }, [searchText]);
 
@@ -41,20 +43,8 @@ export const usePodcastList = () => {
     return getPodcastListFromDataAPI(podcastFee);
   };
 
-  const setPodcastStorageData = (podcastListData: PodcastList) => {
-    localStorage.setItem(
-      STORAGE_PODCAST_LIST_KEY,
-      JSON.stringify(podcastListData),
-    );
-  };
-
-  const getPodcastStorageData = async () => {
-    const data = localStorage.getItem(STORAGE_PODCAST_LIST_KEY);
-    return data ? JSON.parse(data) : undefined;
-  };
-
   const getPodcastListFilterBySearch = async () => {
-    const data = await getPodcastStorageData();
+    const data = await getPodcastListStoredData();
     if (data) {
       const filteredData = {
         ...data,

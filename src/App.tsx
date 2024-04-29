@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PodcastList } from 'src/app/PodcastList/PodcastList';
+import { PodcastList } from 'src/app/pages/PodcastList/PodcastList';
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -16,9 +16,9 @@ import {
   act,
 } from '@testing-library/react';
 import { server } from 'src/app/mocks/node';
-import { PodcastList } from 'src/app/PodcastList/PodcastList';
+import { PodcastList } from 'src/app/pages/PodcastList/PodcastList';
 import { mockResultsPodcastAccessed2021_10_03_9_15 } from 'src/app/mocks/PodcastList.mock.ts';
-import { STORAGE_PODCAST_LIST_KEY } from 'src/app/constants';
+import { STORAGE_PODCAST_LIST_KEY } from 'src/app/service/constants';
 
 vi.mock('react-router-dom', () => ({
   useNavigate: () => {},
