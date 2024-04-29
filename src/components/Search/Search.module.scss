@@ -1,0 +1,24 @@
+@import 'src/styles/import.scss';
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search__count {
+  background-color: $blueMood;
+  height: 24px;
+  border-radius: 15px;
+  margin-right: 10px;
+  padding: 0px 10px;
+  width: fit-content;
+  color: white !important;
+}
+
+.search__form {
+  width: 100%;
+}
+
+.search__input {
+  font-size: 20px;
+}

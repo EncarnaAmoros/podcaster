@@ -1,10 +1,19 @@
 .podcastList {
-  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.podcastList__search {
+  width: 50%;
+  margin-right: 20px;
 }
 
 .podcastList__items {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   gap: 80px 20px;
   justify-content: center;
+  margin-top: 80px;
 }

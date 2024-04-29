@@ -34,7 +34,7 @@ const topPodcasts: PodcastDetailAPI[] = [
       attributes: { 'im:id': '1535809341' },
     },
     'im:artist': {
-      label: 'The Joe Budden Network',
+      label: 'Studios Music',
     },
     category: {
       attributes: {
@@ -75,7 +75,7 @@ const topPodcasts: PodcastDetailAPI[] = [
     id: {
       attributes: { 'im:id': '1574029840' },
     },
-    'im:artist': { label: 'Friday Night Karaoke' },
+    'im:artist': { label: 'Studios Music v2' },
     category: {
       attributes: {
         'im:id': '1310',
@@ -115,7 +115,7 @@ const topPodcasts: PodcastDetailAPI[] = [
     id: {
       attributes: { 'im:id': '1623212249' },
     },
-    'im:artist': { label: 'The Black Effect and iHeartPodcasts' },
+    'im:artist': { label: 'iHeartPodcasts' },
     category: {
       attributes: {
         'im:id': '1523',

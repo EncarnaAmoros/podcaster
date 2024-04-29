@@ -7,15 +7,26 @@ import {
 } from '../mocks/PodcastList.mock';
 import { PodcastList } from './PodcastList';
 
+vi.mock('react-router-dom', () => ({
+  useNavigate: () => {},
+}));
+
 vi.mock('./PodcastList.hook', () => ({
   usePodcastList: vi
     .fn()
     .mockReturnValueOnce({
       podcastList: mockResultsPodcast,
       fetching: false,
+      searchText: '',
       goToPodcastDetail: () => {},
     })
-    .mockReturnValueOnce({ mockResultsNoPodcastData, fetching: false }),
+    .mockReturnValueOnce({ mockResultsNoPodcastData, fetching: false })
+    .mockReturnValueOnce({
+      podcastList: mockResultsPodcast,
+      fetching: false,
+      searchText: '',
+      goToPodcastDetail: () => {},
+    }),
 }));
 
 describe('Podcast List', () => {
