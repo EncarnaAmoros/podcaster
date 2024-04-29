@@ -30,28 +30,6 @@ export const usePodcastList = () => {
     fetchPodcasts(getTopPodcasts(searchText));
   }, [searchText]);
 
-  //   const goToPrevPage = async () => {
-  //     if (podcastList?.info?.prev)
-  //       await fetchCharacters(podcastList.info?.prev);
-  //     setCurrentPage(currentPage - 1);
-  //   };
-
-  //   const goToNextPage = async () => {
-  //     if (podcastList?.info?.next)
-  //       await fetchCharacters(podcastList.info?.next);
-  //     setCurrentPage(currentPage + 1);
-  //   };
-
-  //   const goToFirstPage = async () => {
-  //     await fetchCharacters(getPodcastListUrl(searchText, 0));
-  //     setCurrentPage(firstPage);
-  //   };
-
-  //   const goToLastPage = async (lastPage: number) => {
-  //     await fetchCharacters(getPodcastListUrl(searchText, lastPage));
-  //     setCurrentPage(lastPage);
-  //   };
-
   const goToPodcastDetail = (id: number) => {
     navigate(`/podcast/${id}`);
   };
@@ -62,10 +40,6 @@ export const usePodcastList = () => {
     currentPage,
     searchText,
     setSearchText,
-    //     goToPrevPage,
-    //     goToNextPage,
-    //     goToFirstPage,
-    //     goToLastPage,
     goToPodcastDetail,
   };
 };
