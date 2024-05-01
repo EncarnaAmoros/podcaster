@@ -20,7 +20,7 @@ export const usePodcastList = () => {
 
     let podcastListData = await getPodcastListStoredData();
     if (!podcastListData || havePassed24hours(podcastListData.accessed)) {
-      podcastListData = await fetchPodcasts(getTopPodcastsURL());
+      podcastListData = await fetchPodcasts(getTopPodcastsURL);
       setPodcastListStoredData(podcastListData);
     }
 

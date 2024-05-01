@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEpisodeDetail } from './EpisodeDetail.hook';
 
 import { GeneralInfo } from 'src/components/GeneralInfo/GeneralInfo';
@@ -9,14 +9,20 @@ import styles from './EpisodeDetail.module.scss';
 
 export const EpisodeDetail = () => {
   const { podcastId, trackId } = useParams();
+  if (!podcastId || !trackId) return;
+
+  const navigate = useNavigate();
   const { podcastSelected, episodeSelected } = useEpisodeDetail(
     podcastId,
     trackId,
   );
 
+  const goToPodcastDetail = () => {
+    navigate(`/podcast/${podcastId}/`);
+  };
+
   const noPodcastSelectedData =
     'The info about the podcast selected is not available';
-
   const noEpisodeSelectedData =
     'The info about the episode selected is not available';
 
@@ -28,6 +34,7 @@ export const EpisodeDetail = () => {
           title={podcastSelected.name}
           subtitle={`by ${podcastSelected.artist}`}
           description={podcastSelected.summary}
+          onClickCard={goToPodcastDetail}
         />
       ) : (
         <GeneralInfo info={noPodcastSelectedData} />
@@ -37,6 +44,7 @@ export const EpisodeDetail = () => {
           trackName={episodeSelected.trackName}
           description={episodeSelected.description}
           episodeUrl={episodeSelected.episodeUrl}
+          audioType={episodeSelected.episodeFileExtension}
         />
       ) : (
         <>{<GeneralInfo info={noEpisodeSelectedData} />}</>

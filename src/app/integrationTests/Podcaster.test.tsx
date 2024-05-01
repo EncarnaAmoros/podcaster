@@ -24,6 +24,10 @@ vi.mock('react-router-dom', () => ({
   useNavigate: () => {},
 }));
 
+vi.mock('react-router-dom', () => ({
+  useNavigate: () => {},
+}));
+
 describe('Podcast List Hook', () => {
   beforeAll(() => {
     server.listen();

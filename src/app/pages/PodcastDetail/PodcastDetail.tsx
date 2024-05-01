@@ -20,6 +20,10 @@ export const PodcastDetail = () => {
     navigate(`/podcast/${podcastId}/episode/${idEpisode}`);
   };
 
+  const goToPodcastDetail = () => {
+    navigate(`/podcast/${podcastId}/`);
+  };
+
   const noListData =
     'The info about the list of episodes of the podcast is not available';
   const noPodcastSelectedData =
@@ -33,6 +37,7 @@ export const PodcastDetail = () => {
           title={podcastSelected.name}
           subtitle={`by ${podcastSelected.artist}`}
           description={podcastSelected.summary}
+          onClickCard={goToPodcastDetail}
         />
       ) : (
         <GeneralInfo info={noPodcastSelectedData} />

@@ -16,6 +16,12 @@
   }
 }
 
+.cardDetail__image,
+.cardDetail__title,
+.cardDetail__subtitle {
+  cursor: pointer;
+}
+
 .cardDetail__subtitle,
 .cardDetail__description {
   font-style: italic;

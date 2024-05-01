@@ -11,6 +11,7 @@ describe('Card detail', () => {
         image="imageTest.png"
         subtitle="by Mutemath"
         description="The best music to listen to"
+        onClickCard={() => {}}
       />,
     );
 
