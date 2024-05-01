@@ -17,7 +17,7 @@ import {
 } from '@testing-library/react';
 import { server } from 'src/app/mocks/node';
 import { PodcastList } from 'src/app/pages/PodcastList/PodcastList';
-import { mockResultsPodcastAccessed2021_10_03_9_15 } from 'src/app/mocks/PodcastList.mock.ts';
+import { resultsPodcastAccessed2021_10_03_9_15 } from 'src/app/mocks/podcastList.mock';
 import { STORAGE_PODCAST_LIST_KEY } from 'src/app/service/constants';
 
 vi.mock('react-router-dom', () => ({
@@ -51,7 +51,7 @@ describe('Podcast List Hook', () => {
 
     localStorage.setItem(
       STORAGE_PODCAST_LIST_KEY,
-      JSON.stringify(mockResultsPodcastAccessed2021_10_03_9_15),
+      JSON.stringify(resultsPodcastAccessed2021_10_03_9_15),
     );
   }
 
@@ -99,7 +99,7 @@ describe('Podcast List Hook', () => {
     expect(screen.queryByText('R&B Money')).not.toBeInTheDocument();
   });
 
-  it.only('should render podcast list filtered by artist', async () => {
+  it('should render podcast list filtered by artist', async () => {
     await setup();
 
     expect(screen.getByText('Author: Studios Music')).toBeVisible();

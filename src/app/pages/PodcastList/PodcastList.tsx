@@ -1,20 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import { usePodcastList } from './PodcastList.hook';
-import { PodcastDetail } from 'src/app/types/Data';
+import { PodcastDetail } from 'src/app/types/PodcastListData';
 
 import { GeneralInfo } from 'src/components/GeneralInfo/GeneralInfo';
 import { Spinner } from 'src/components/Spinner/Spinner';
 import { Search } from 'src/components/Search/Search';
-import { Card } from 'src/components/Card/Card';
+import { CardList } from 'src/components/CardList/CardList';
 
 import styles from './PodcastList.module.scss';
 
 export const PodcastList = () => {
-  const { podcastList, fetching, searchText, setSearchText } = usePodcastList();
   const navigate = useNavigate();
+  const { podcastList, fetching, searchText, setSearchText } = usePodcastList();
 
-  const goToPodcastDetail = (id: number) => {
-    navigate(`/podcast/${id}`);
+  const goToPodcastDetail = (podcastId: number) => {
+    navigate(`/podcast/${podcastId}`);
   };
 
   const noListData = 'No podcast available';
@@ -32,7 +32,7 @@ export const PodcastList = () => {
         <section className={styles.podcastList__items}>
           {podcastList.feed.map((podcast: PodcastDetail) => {
             return (
-              <Card
+              <CardList
                 key={podcast.id}
                 image={podcast.image}
                 title={podcast.name}

@@ -1,8 +1,8 @@
 import { http, HttpResponse } from 'msw';
-import { mockResultsPodcast } from './PodcastListAPI.mock.ts';
+import { resultsPodcast } from './podcastListAPI.mock.ts';
 
 export const handlers = [
   http.get('*/us/rss/toppodcasts/*', ({}) => {
-    return HttpResponse.json(mockResultsPodcast);
+    return HttpResponse.json(resultsPodcast);
   }),
 ];

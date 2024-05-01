@@ -1,12 +1,12 @@
 import {
   PodcastDetailAPI,
   PodcastListResponseAPI,
-} from 'src/app/types/DataAPI';
-import { PodcastDetail, PodcastList } from '../types/Data';
+} from 'src/app/types/PodcastListDataAPI';
+import { PodcastDetail, PodcastList } from 'src/app/types/PodcastListData';
+import { EpisodeListResponse, EpisodeList } from 'src/app/types/EpisodesData';
 
 const getPodcastDetail = (podcastDetail: PodcastDetailAPI): PodcastDetail => {
   return {
-    ...podcastDetail,
     name: podcastDetail['im:name'].label,
     image: podcastDetail['im:image'][2].label,
     summary: podcastDetail.summary.label,
@@ -31,4 +31,8 @@ const getPodcastListFromDataAPI = (
   accessed: new Date().toString(),
 });
 
-export { getPodcastListFromDataAPI };
+const getEpisodeListFromDataAPI = (
+  podcastResponseAPI: EpisodeListResponse,
+): EpisodeList => JSON.parse(podcastResponseAPI.contents);
+
+export { getPodcastListFromDataAPI, getEpisodeListFromDataAPI };

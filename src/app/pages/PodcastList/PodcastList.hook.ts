@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { getTopPodcastsURL } from 'src/app/service/urls';
-import { PodcastListResponseAPI } from 'src/app/types/DataAPI';
-import { PodcastList, PodcastDetail } from 'src/app/types/Data';
+import { PodcastListResponseAPI } from 'src/app/types/PodcastListDataAPI';
+import { PodcastList, PodcastDetail } from 'src/app/types/PodcastListData';
 import { getPodcastListFromDataAPI } from 'src/app/utils/convertAPIData';
 import { havePassed24hours } from 'src/app/utils/dataUtils';
 import { useStorageData } from 'src/app/service/storage';
@@ -10,16 +10,17 @@ import { useStorageData } from 'src/app/service/storage';
 export const usePodcastList = () => {
   const { setPodcastListStoredData, getPodcastListStoredData } =
     useStorageData();
+
   const [podcastList, setPodcastList] = useState<PodcastList>();
   const [fetching, setFetching] = useState<boolean>();
   const [searchText, setSearchText] = useState<string>('');
 
-  const getPodcastListData = async (url: string) => {
+  const getPodcastListData = async () => {
     setFetching(true);
 
     let podcastListData = await getPodcastListStoredData();
     if (!podcastListData || havePassed24hours(podcastListData.accessed)) {
-      podcastListData = await fetchPodcasts(url);
+      podcastListData = await fetchPodcasts(getTopPodcastsURL());
       setPodcastListStoredData(podcastListData);
     }
 
@@ -29,7 +30,7 @@ export const usePodcastList = () => {
 
   useEffect(() => {
     // initial fetch data
-    getPodcastListData(getTopPodcastsURL());
+    getPodcastListData();
   }, []);
 
   useEffect(() => {

@@ -1,0 +1,30 @@
+@import 'src/styles/import.scss';
+
+.episodeList {
+  width: 800px;
+}
+
+.episodeList__totalEpisodes {
+  border: 1px solid $greyLight;
+  font-weight: bold;
+  height: 50px;
+  padding: 12px 10px;
+  font-size: large;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.episodeList__table {
+  border: 1px solid $greyLight;
+  padding: 12px 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.episodeList__table__title {
+  cursor: pointer;
+  color: $blueMood !important;
+}
+
+.episodeList__table__title:hover {
+  background-color: $greyLight;
+}

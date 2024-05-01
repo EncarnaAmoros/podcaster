@@ -1,4 +1,4 @@
-import { PodcastDetail, PodcastList } from 'src/app/types/Data';
+import { PodcastDetail, PodcastList } from 'src/app/types/PodcastListData';
 
 export const topPodcasts: PodcastDetail[] = [
   {
@@ -56,16 +56,16 @@ const topPodcastsV2: PodcastDetail[] = topPodcasts.map((podcast) => ({
   name: `${podcast.name} v2`,
 }));
 
-export const mockResultsPodcast: PodcastList = {
+export const resultsPodcast: PodcastList = {
   feed: topPodcasts,
   accessed: '2023-12-01T07:15:00.000Z',
 };
 
-export const mockResultsPodcastAccessed2021_10_03_9_15: PodcastList = {
+export const resultsPodcastAccessed2021_10_03_9_15: PodcastList = {
   feed: topPodcastsV2,
   accessed: '2021-11-01T09:15:00.000Z',
 };
 
-export const mockResultsNoPodcastData: PodcastList = {
+export const resultsNoPodcastData: PodcastList = {
   feed: [],
 };

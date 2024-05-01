@@ -1,7 +1,7 @@
 import {
   PodcastDetailAPI,
   PodcastListResponseAPI,
-} from 'src/app/types/DataAPI';
+} from 'src/app/types/PodcastListDataAPI';
 
 const topPodcasts: PodcastDetailAPI[] = [
   {
@@ -133,7 +133,7 @@ const topPodcastsV2: PodcastDetailAPI[] = topPodcasts.map((podcast) => ({
   name: `${podcast['im:name'].label} v2`,
 }));
 
-export const mockResultsPodcast: PodcastListResponseAPI = {
+export const resultsPodcast: PodcastListResponseAPI = {
   feed: {
     entry: topPodcasts,
     link: [
@@ -154,7 +154,7 @@ export const mockResultsPodcast: PodcastListResponseAPI = {
   },
 };
 
-export const mockResultsPodcastV2: PodcastListResponseAPI = {
+export const resultsPodcastV2: PodcastListResponseAPI = {
   feed: {
     entry: topPodcastsV2,
     link: [
@@ -175,7 +175,7 @@ export const mockResultsPodcastV2: PodcastListResponseAPI = {
   },
 };
 
-export const mockResultsNoPodcastData: PodcastListResponseAPI = {
+export const resultsNoPodcastData: PodcastListResponseAPI = {
   feed: {
     entry: [],
     link: [],

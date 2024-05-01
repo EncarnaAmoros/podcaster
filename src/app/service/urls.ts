@@ -5,4 +5,4 @@ export const getTopPodcastsURL = () => {
 };
 
 export const getPodcastDetailURL = (id: string) =>
-  `${API_URL}/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`;
+  `https://api.allorigins.win/get?url=${encodeURIComponent(`${API_URL}/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`)}`;

@@ -1,4 +1,4 @@
-.card {
+.cardList {
   width: 400px;
   height: 170px;
   cursor: pointer;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.card__image {
+.cardList__image {
   position: absolute;
   top: -50px;
   z-index: 10;
@@ -19,7 +19,7 @@
   }
 }
 
-.card__content {
+.cardList__content {
   padding-top: 70px;
   width: 100%;
   height: 100%;

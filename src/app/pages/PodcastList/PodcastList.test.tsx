@@ -2,9 +2,9 @@ import { vi, describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import {
-  mockResultsPodcast,
-  mockResultsNoPodcastData,
-} from '../../mocks/PodcastList.mock';
+  resultsPodcast,
+  resultsNoPodcastData,
+} from '../../mocks/podcastList.mock';
 import { PodcastList } from './PodcastList';
 
 vi.mock('react-router-dom', () => ({
@@ -15,18 +15,22 @@ vi.mock('./PodcastList.hook', () => ({
   usePodcastList: vi
     .fn()
     .mockReturnValueOnce({
-      podcastList: mockResultsPodcast,
+      podcastList: resultsPodcast,
       fetching: false,
       searchText: '',
-      goToPodcastDetail: () => {},
     })
-    .mockReturnValueOnce({ mockResultsNoPodcastData, fetching: false })
+    .mockReturnValueOnce({ resultsNoPodcastData, fetching: false })
     .mockReturnValueOnce({
-      podcastList: mockResultsPodcast,
+      podcastList: resultsPodcast,
       fetching: false,
       searchText: '',
-      goToPodcastDetail: () => {},
     }),
+}));
+
+vi.mock('src/app/service/storage', () => ({
+  useStorageData: vi.fn().mockReturnValue({
+    setPodcastSelectedInState: () => {},
+  }),
 }));
 
 describe('Podcast List', () => {

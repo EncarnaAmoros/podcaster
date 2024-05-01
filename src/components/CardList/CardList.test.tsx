@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect } from 'vitest';
 
-import { Card } from './Card';
+import { CardList } from './CardList';
 
-describe('Card', () => {
-  it('should render a podcast card', async () => {
+describe('CardList', () => {
+  it('should render a card item part of a list', async () => {
     render(
-      <Card
+      <CardList
         title="Top musical hits"
         image="imageTest.png"
         subtitle="Author: Pepe"
@@ -18,8 +18,10 @@ describe('Card', () => {
     expect(screen.getByText(/author: pepe/i)).toBeVisible();
   });
 
-  it('should render a podcast card without author', async () => {
-    render(<Card title="Mix music" image="imageTest.png" onClick={() => {}} />);
+  it('should render a card item part of a list without subtitle', async () => {
+    render(
+      <CardList title="Mix music" image="imageTest.png" onClick={() => {}} />,
+    );
 
     expect(screen.getByText('Mix music')).toBeVisible();
     expect(screen.queryByText(/author: /i)).not.toBeInTheDocument();
@@ -28,7 +30,7 @@ describe('Card', () => {
   it('should execute onClick function when click on card', async () => {
     const goToPodcastDetail = vi.fn();
     render(
-      <Card
+      <CardList
         title="Top musical hits"
         image="imageTest.png"
         subtitle="Author: Pepe"
