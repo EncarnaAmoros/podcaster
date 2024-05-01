@@ -59,4 +59,17 @@ describe('EpisodeCard', () => {
     ).not.toBeInTheDocument();
     expect(screen.getByText('No audio available')).toBeVisible();
   });
+
+  it.only('should render description with HTML interpretated', async () => {
+    render(
+      <EpisodeCard
+        trackName={episodeWithoutAudio.trackName}
+        description={'<p>Test description</p>'}
+        episodeUrl={episodeWithoutAudio.episodeUrl}
+        audioType={episodeWithoutAudio.episodeFileExtension}
+      />,
+    );
+
+    expect(screen.getByText('Test description')).toBeVisible();
+  });
 });
