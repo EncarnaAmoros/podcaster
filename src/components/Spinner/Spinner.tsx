@@ -1,10 +1,9 @@
-import React from "react";
-import SpinnerComponent from "react-bootstrap/Spinner";
+import SpinnerComponent from 'react-bootstrap/Spinner';
 
-import styles from "./Spinner.module.scss";
+import styles from './Spinner.module.scss';
 
 export const Spinner = () => {
-  const loadingText = "Loading...";
+  const loadingText = 'Loading...';
 
   return (
     <div className={styles.spinner}>

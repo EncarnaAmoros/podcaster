@@ -18,4 +18,7 @@ export default defineConfig({
       src: '/src',
     },
   },
+  define: {
+    'import.meta.vitest': 'undefined',
+  },
 });

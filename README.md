@@ -20,6 +20,14 @@ For Testing: Jest Testing Library + msw for integration tests. Errors control an
 
 - pnpm dev
 
+## Build app (production mode)
+
+- pnpm build
+
+When it is time to deploy your app for production, simply run the vite build command. By default, it uses <root>/index.html as the build entry point, and produces an application bundle that is suitable to be served over a static hosting service. Check out the Deploying a Static Site for guides about popular services.
+
+More info [here](https://vitejs.dev/guide/build/#:~:text=When%20it%20is%20time%20to,for%20guides%20about%20popular%20services.)
+
 ## Run tests
 
 - pnpm test
