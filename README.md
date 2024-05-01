@@ -5,8 +5,13 @@
 This project is a mini app to listen musical podcast. The app will have three views:
 
 - Podcast list
+ ![image](https://github.com/EncarnaAmoros/podcaster/assets/7465602/121102a1-5bd0-4e78-b09d-3506702660df)
+
 - Podcast detail with list of episodes
+  ![image](https://github.com/EncarnaAmoros/podcaster/assets/7465602/9c1b03d5-b3f2-4402-bcb1-2bb3a4e55b37)
+
 - Podcast episode detail
+  ![image](https://github.com/EncarnaAmoros/podcaster/assets/7465602/f7e81753-14b1-4f1f-8e54-1295a654d825)
 
 ## Tech Stack
 
