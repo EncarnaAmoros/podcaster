@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import {
+  initNavigation,
+  stopNavigation,
+} from 'src/app/features/navigationSlice';
 import { getPodcastDetailURL } from 'src/app/service/urls';
 import { EpisodeListResponse, EpisodeList } from 'src/app/types/EpisodesData';
 import { getEpisodeListFromDataAPI } from 'src/app/utils/convertAPIData';
@@ -8,6 +13,7 @@ import { havePassed24hours } from 'src/app/utils/dataUtils';
 import { useStorageData } from 'src/app/service/storage';
 
 export const usePodcastDetail = (podcastId: string) => {
+  const dispatch = useDispatch();
   const { getPodcastSelected } = useStorageData();
   const { setPodcastEpisodesStoredData, getPodcastEpisodesStoredData } =
     useStorageData();
@@ -18,6 +24,7 @@ export const usePodcastDetail = (podcastId: string) => {
 
   const getPodcasDetailData = async () => {
     setFetching(true);
+    dispatch(initNavigation());
 
     let episodesData = await getPodcastEpisodesStoredData(podcastId);
     if (!episodesData || havePassed24hours(episodesData.accessed)) {
@@ -27,6 +34,7 @@ export const usePodcastDetail = (podcastId: string) => {
 
     setEpisodeList(episodesData);
     setFetching(false);
+    dispatch(stopNavigation());
   };
 
   useEffect(() => {

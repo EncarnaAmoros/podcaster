@@ -15,6 +15,8 @@ import {
   fireEvent,
   act,
 } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from 'src/app/store.ts';
 import { server } from 'src/app/mocks/node';
 import { PodcastList } from 'src/app/pages/PodcastList/PodcastList';
 import { resultsPodcastAccessed2021_10_03_9_15 } from 'src/app/mocks/podcastList.mock';
@@ -45,7 +47,11 @@ describe('Podcast List Hook', () => {
   });
 
   const setup = async () => {
-    render(<PodcastList />);
+    render(
+      <Provider store={store}>
+        <PodcastList />
+      </Provider>,
+    );
 
     await waitForElementToBeRemoved(screen.queryByText(/loading\.\.\./i));
   };

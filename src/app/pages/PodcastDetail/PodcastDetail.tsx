@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { usePodcastDetail } from './PodcastDetail.hook';
 
+import { usePodcastDetail } from './PodcastDetail.hook';
 import { EpisodeList } from 'src/app/components/EpisodesList/EpisodeList';
 import { GeneralInfo } from 'src/components/GeneralInfo/GeneralInfo';
 import { CardDetail } from 'src/components/CardDetail/CardDetail';

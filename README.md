@@ -60,4 +60,6 @@ This is the structure used in this project:
 
     - integrationTests: tests with API data mocked with msw
 
+    - features, store.ts: slices for data on app using redux
+
   - styles: common styles for the app _(e.g., colours)_
